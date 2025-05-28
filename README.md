@@ -7,7 +7,7 @@
 
 ## 系统简介
 
-本教室预约系统是一个基于 Yii2 框架开发的 Web 应用，旨在帮助学校高效管理教室资源，便捷安排课程教学。系统采用前后端分离架构，提供直观的用户界面和完善的功能模块。本地访问目录地址：http://localhost/classroom-reservation/backend/web/site/index。
+本教室预约系统是一个基于 Yii2 框架开发的 Web 应用，旨在帮助学校高效管理教室资源，便捷安排课程教学。系统采用前后端分离架构，提供直观的用户界面和完善的功能模块。本地访问目录地址：http://localhost/classroom-reservation/backend/web/site/index
 
 ## 主要功能
 
