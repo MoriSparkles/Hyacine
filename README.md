@@ -93,7 +93,7 @@ frontend/            # 前台应用
 2. 安装步骤
    ```bash
    # 克隆项目
-   git clone [项目地址]
+   git clone https://github.com/MoriSparkles/Hyacine-classroom-reservation.git
 
    # 安装依赖
    composer install
@@ -129,3 +129,4 @@ frontend/            # 前台应用
 
 - 开发团队：Hyacine
 - 联系方式：1532508040@qq.com
+
