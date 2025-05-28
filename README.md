@@ -1,60 +1,135 @@
+# 教室预约系统
+
 <p align="center">
-    <a href="https://github.com/yiisoft" target="_blank">
-        <img src="https://avatars0.githubusercontent.com/u/993323" height="100px">
-    </a>
-    <h1 align="center">Yii 2 Advanced Project Template</h1>
-    <br>
+    <h1 align="center">教室预约系统</h1>
+    <p align="center">高效管理教室资源，便捷安排课程教学</p>
 </p>
 
-Yii 2 Advanced Project Template is a skeleton [Yii 2](https://www.yiiframework.com/) application best for
-developing complex Web applications with multiple tiers.
+## 系统简介
 
-The template includes three tiers: front end, back end, and console, each of which
-is a separate Yii application.
+教室预约系统是一个基于 Yii2 框架开发的 Web 应用，旨在帮助学校高效管理教室资源，便捷安排课程教学。系统采用前后端分离架构，提供直观的用户界面和完善的功能模块。
 
-The template is designed to work in a team development environment. It supports
-deploying the application in different environments.
+## 主要功能
 
-Documentation is at [docs/guide/README.md](docs/guide/README.md).
+### 1. 课程管理
+- 课程信息管理：添加、编辑、删除课程信息
+- 课程分类管理：对课程进行分类管理
+- 课程安排：安排课程的具体时间和教室
 
-[![Latest Stable Version](https://img.shields.io/packagist/v/yiisoft/yii2-app-advanced.svg)](https://packagist.org/packages/yiisoft/yii2-app-advanced)
-[![Total Downloads](https://img.shields.io/packagist/dt/yiisoft/yii2-app-advanced.svg)](https://packagist.org/packages/yiisoft/yii2-app-advanced)
-[![build](https://github.com/yiisoft/yii2-app-advanced/workflows/build/badge.svg)](https://github.com/yiisoft/yii2-app-advanced/actions?query=workflow%3Abuild)
+### 2. 教室管理
+- 教室信息管理：维护教室基本信息
+- 教室容量管理：设置教室容纳人数
+- 教室使用状态：实时查看教室使用情况
 
-DIRECTORY STRUCTURE
--------------------
+### 3. 预约管理
+- 课程预约：根据课程需求预约合适的教室
+- 时间冲突检测：自动检测并避免时间冲突
+- 预约审核：管理员审核预约申请
+
+### 4. 学期管理
+- 学期设置：管理学期信息
+- 当前学期：设置当前活动学期
+- 学期切换：在不同学期间切换
+
+## 技术架构
+
+### 后端技术栈
+- 框架：Yii2 Advanced Application Template
+- 数据库：MySQL
+- 缓存：Redis（可选）
+
+### 前端技术栈
+- 框架：Bootstrap 5
+- JavaScript：jQuery
+- UI 组件：Yii2 GridView, DetailView 等
+
+## 目录结构
 
 ```
-common
-    config/              contains shared configurations
-    mail/                contains view files for e-mails
-    models/              contains model classes used in both backend and frontend
-    tests/               contains tests for common classes    
-console
-    config/              contains console configurations
-    controllers/         contains console controllers (commands)
-    migrations/          contains database migrations
-    models/              contains console-specific model classes
-    runtime/             contains files generated during runtime
-backend
-    assets/              contains application assets such as JavaScript and CSS
-    config/              contains backend configurations
-    controllers/         contains Web controller classes
-    models/              contains backend-specific model classes
-    runtime/             contains files generated during runtime
-    tests/               contains tests for backend application    
-    views/               contains view files for the Web application
-    web/                 contains the entry script and Web resources
-frontend
-    assets/              contains application assets such as JavaScript and CSS
-    config/              contains frontend configurations
-    controllers/         contains Web controller classes
-    models/              contains frontend-specific model classes
-    runtime/             contains files generated during runtime
-    tests/               contains tests for frontend application
-    views/               contains view files for the Web application
-    web/                 contains the entry script and Web resources
-    widgets/             contains frontend widgets
-vendor/                  contains dependent 3rd-party packages
-environments/            contains environment-based overrides
+common/              # 公共模块
+    config/          # 共享配置
+    models/          # 数据模型
+    tests/           # 测试文件
+console/             # 控制台应用
+    config/          # 控制台配置
+    controllers/     # 控制台命令
+    migrations/      # 数据库迁移
+backend/             # 后台应用
+    assets/          # 资源文件
+    config/          # 后台配置
+    controllers/     # 控制器
+    models/          # 模型
+    views/           # 视图
+    web/             # Web 入口
+frontend/            # 前台应用
+    assets/          # 资源文件
+    config/          # 前台配置
+    controllers/     # 控制器
+    models/          # 模型
+    views/           # 视图
+    web/             # Web 入口
 ```
+
+## 数据模型
+
+### 主要数据表
+1. `yyxt_course_arrange` - 课程安排表
+   - 课程ID、教师姓名、学生人数、教室ID等
+   - 周次、学期、星期、节次等时间信息
+   - 备注、所需工具等附加信息
+
+2. `yyxt_room` - 教室信息表
+   - 教室名称
+   - 容纳人数
+   - 备注信息
+
+## 安装部署
+
+1. 环境要求
+   - PHP >= 7.4
+   - MySQL >= 5.7
+   - Composer
+
+2. 安装步骤
+   ```bash
+   # 克隆项目
+   git clone [项目地址]
+
+   # 安装依赖
+   composer install
+
+   # 配置数据库
+   cp common/config/main-local.php.dist common/config/main-local.php
+   # 编辑数据库配置
+
+   # 执行数据库迁移
+   php yii migrate
+   ```
+
+3. 配置 Web 服务器
+   - 配置虚拟主机指向 frontend/web 和 backend/web
+   - 确保 runtime 目录可写
+
+## 使用说明
+
+### 管理员功能
+1. 登录后台管理系统
+2. 管理课程信息
+3. 管理教室资源
+4. 审核预约申请
+5. 查看统计报表
+
+### 教师功能
+1. 查看教室使用情况
+2. 提交课程预约申请
+3. 查看预约状态
+4. 管理个人课程安排
+
+## 开发团队
+
+- 开发团队：[团队名称]
+- 联系方式：[联系方式]
+
+## 版权信息
+
+Copyright © 2024 [组织名称]
